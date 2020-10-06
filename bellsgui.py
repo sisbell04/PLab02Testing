@@ -165,11 +165,12 @@ class MyWindow(QMainWindow):
         """
         self.songselectbtnsswitch(False)
 
-        jinglesong = jingle.NewJingleSong(self.win, self.app)
-        self.songSwitch = True
-        while(self.isSongPlaying):
-            time.sleep(0.01) #Useless call function
+        self.setSongPlaying(1, False)#Set Carol Playing to False
+        self.setSongPlaying(2, True) #Set Jingle Playing to True
+        self.setSongPlaying(3, False)#Set Little Drummer Playing to False
         time.sleep(0.5)
+
+        jinglesong = jingle.NewJingleSong(self.win, self.app)
         self.jingleWorker = Worker(jinglesong.startsong) # add the function to execute to the worker class
         self.jingleWorker.signals.finished.connect(self.afterSong) # function that will execute after carolWorker is done
         self.songSwitch = False

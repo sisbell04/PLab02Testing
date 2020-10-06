@@ -40,7 +40,7 @@ class NewJingleSong():
 
             count = 0
             while count < 2:
-                if(self.win.getStopped() == True):
+                if(self.win.getStopped(2) == True):
                     count += 1
                     return
                 self.win.updatelabel2("Jingle PASS {}".format(i))
@@ -51,8 +51,8 @@ class NewJingleSong():
                 self.all(False)
 
                 count += 1
-        if(self.win.getStopped() == True):
-            self.win.setSongPlaying(False)
+        if(self.win.getStopped(2) == True):
+            self.win.updatelabel2("Jingle button was clicked.\nClick another!")
             return
 
         self.win.updatelabel2("Jingle button was clicked.\nClick another!")

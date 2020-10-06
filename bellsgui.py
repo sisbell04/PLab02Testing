@@ -142,11 +142,12 @@ class MyWindow(QMainWindow):
         """
         self.songselectbtnsswitch(False)
 
-        carolsong = carol.NewCarolSong(self.win, self.app)
-        self.songSwitch = True
-        while(self.isSongPlaying):
-            time.sleep(0.01) #Useless call function
+        self.setSongPlaying(1, True) #Set Carol Playing to True
+        self.setSongPlaying(2, False)#Set Jingle Playing to False
+        self.setSongPlaying(3, False)#Set Little Drummer Playing to False
         time.sleep(0.5)
+
+        carolsong = carol.NewCarolSong(self.win, self.app)
         self.carolWorker = Worker(carolsong.startsong) # add the function to execute to the worker class
         self.carolWorker.signals.finished.connect(self.afterSong) # function that will execute after carolWorker is done
         self.songSwitch = False
@@ -222,14 +223,28 @@ class MyWindow(QMainWindow):
         """
         return self.isPaused
 
-    def getStopped(self):
+    def getStopped(self, song):
         """
         Getter for the stop variable
         """
-        return self.songSwitch
+        if(song == 1):
+            return self.carolStopper
+        if(song == 2):
+            return self.jingleStopper
+        if(song == 3):
+            return self.littleStopper
+        return True
 
-    def setSongPlaying(self, logic):
-        self.isSongPlaying = logic
+    def setSongPlaying(self, song, logic):
+        """
+        Sets if any of the songs are currently playing
+        """
+        if(song == 1):
+            self.carolStopper = logic
+        if(song == 2):
+            self.jingleStopper = logic
+        if(song == 3):
+            self.littleStopper = logic
 
     def updatelabel2(self, text):
         self.ui.label2.setText(text)

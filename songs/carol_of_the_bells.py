@@ -39,7 +39,7 @@ class NewCarolSong():
         for i in range(10):
             count = 0
             while count < 2:
-                if(self.win.getStopped() == True):
+                if(self.win.getStopped(1) == True):
                     count += 1
                     return
                 self.win.updatelabel2("Carol PASS {}".format(i))
@@ -50,8 +50,8 @@ class NewCarolSong():
                 self.all(False)
 
                 count += 1
-        if(self.win.getStopped() == True):
-            self.win.setSongPlaying(False)
+        if(self.win.getStopped(1) == True):
+            self.win.updatelabel2("Carol button was clicked.\nClick another!")
             return
         self.win.updatelabel2("Carol button was clicked.\nClick another!")
     

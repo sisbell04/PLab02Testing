@@ -148,7 +148,7 @@ class MyWindow(QMainWindow):
         self.setSongPlaying(1, True) #Set Carol Playing to True
         self.setSongPlaying(2, False)#Set Jingle Playing to False
         self.setSongPlaying(3, False)#Set Little Drummer Playing to False
-        time.sleep(0.5)
+        self.threadpool.waitForDone()
 
         carolsong = carol.NewCarolSong(self.win, self.app)
         self.carolWorker = Worker(carolsong.startsong) # add the function to execute to the worker class
@@ -171,7 +171,7 @@ class MyWindow(QMainWindow):
         self.setSongPlaying(1, False)#Set Carol Playing to False
         self.setSongPlaying(2, True) #Set Jingle Playing to True
         self.setSongPlaying(3, False)#Set Little Drummer Playing to False
-        time.sleep(0.5)
+        self.threadpool.waitForDone()
 
         jinglesong = jingle.NewJingleSong(self.win, self.app)
         self.jingleWorker = Worker(jinglesong.startsong) # add the function to execute to the worker class
@@ -232,11 +232,11 @@ class MyWindow(QMainWindow):
         Getter for the stop variable
         """
         if(song == 1):
-            return self.carolStopper
+            return not self.carolStopper
         if(song == 2):
-            return self.jingleStopper
+            return not self.jingleStopper
         if(song == 3):
-            return self.littleStopper
+            return not self.littleStopper
         return True
 
     def setSongPlaying(self, song, logic):

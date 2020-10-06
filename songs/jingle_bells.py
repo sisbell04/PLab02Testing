@@ -62,7 +62,7 @@ class NewJingleSong():
         Controls the output to the gpio pins that control the actuators
         """
         self.app.processEvents()
-        if(self.win.getStopped() == True):
+        if(self.win.getStopped(2) == True):
             return
         while self.win.getPaused() == True:
             self.app.processEvents() # Not really too sure if this line is needed. NEEDS TESTING

@@ -112,6 +112,9 @@ class MyWindow(QMainWindow):
         self.ui.pausebtn.clicked.connect(self.pauseClicked)
         self.ui.playbtn.clicked.connect(self.playClicked)
         self.ui.exitbtn.clicked.connect(self.exitclicked)
+        self.setSongPlaying(1, False)#Initialize Carol Playing to False
+        self.setSongPlaying(2, False)#Initialize Jingle Playing to False
+        self.setSongPlaying(3, False)#Initialize Little Drummer Playing to False
         self.isPaused = False
         self.isSongPlaying = False
         self.threadpool = QThreadPool()

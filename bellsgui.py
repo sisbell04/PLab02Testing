@@ -134,9 +134,7 @@ class MyWindow(QMainWindow):
         """
         self.songselectbtnsswitch(True)
         self.pausePlaySwitch(False)
-        self.songSwitch = False
-        self.isSongPlaying = False
-
+        
     def carolclicked(self):
         """
         Handles carol of the bells song playing with worker classes, signals, and threadpools.
@@ -145,10 +143,12 @@ class MyWindow(QMainWindow):
         """
         self.songselectbtnsswitch(False)
 
-        self.setSongPlaying(1, True) #Set Carol Playing to True
-        self.setSongPlaying(2, False)#Set Jingle Playing to False
-        self.setSongPlaying(3, False)#Set Little Drummer Playing to False
-        self.threadpool.waitForDone()
+        #Turn All Songs Off
+        self.setSongPlaying(1, False)
+        self.setSongPlaying(2, False)
+        self.setSongPlaying(3, False)
+        self.threadpool.waitForDone() #Wait for songs to return
+        self.setSongPlaying(1, True) #Turn Carol Song On
 
         carolsong = carol.NewCarolSong(self.win, self.app)
         self.carolWorker = Worker(carolsong.startsong) # add the function to execute to the worker class
@@ -168,10 +168,12 @@ class MyWindow(QMainWindow):
         """
         self.songselectbtnsswitch(False)
 
-        self.setSongPlaying(1, False)#Set Carol Playing to False
-        self.setSongPlaying(2, True) #Set Jingle Playing to True
-        self.setSongPlaying(3, False)#Set Little Drummer Playing to False
-        self.threadpool.waitForDone()
+        #Turn All Songs Off
+        self.setSongPlaying(1, False)
+        self.setSongPlaying(2, False)
+        self.setSongPlaying(3, False)
+        self.threadpool.waitForDone() #Wait for songs to return
+        self.setSongPlaying(2, True) #Turn Jingle Song On
 
         jinglesong = jingle.NewJingleSong(self.win, self.app)
         self.jingleWorker = Worker(jinglesong.startsong) # add the function to execute to the worker class

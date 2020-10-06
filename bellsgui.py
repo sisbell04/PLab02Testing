@@ -113,6 +113,7 @@ class MyWindow(QMainWindow):
         self.ui.playbtn.clicked.connect(self.playClicked)
         self.ui.exitbtn.clicked.connect(self.exitclicked)
         self.isPaused = False
+        self.isSongPlaying = False
         self.threadpool = QThreadPool()
         self.win = self
         self.app = app
@@ -145,6 +146,7 @@ class MyWindow(QMainWindow):
         self.songSwitch = True
         while(self.isSongPlaying):
             time.sleep(0.01) #Useless call function
+        time.sleep(0.5)
         self.carolWorker = Worker(carolsong.startsong) # add the function to execute to the worker class
         self.carolWorker.signals.finished.connect(self.afterSong) # function that will execute after carolWorker is done
         self.songSwitch = False
@@ -166,6 +168,7 @@ class MyWindow(QMainWindow):
         self.songSwitch = True
         while(self.isSongPlaying):
             time.sleep(0.01) #Useless call function
+        time.sleep(0.5)
         self.jingleWorker = Worker(jinglesong.startsong) # add the function to execute to the worker class
         self.jingleWorker.signals.finished.connect(self.afterSong) # function that will execute after carolWorker is done
         self.songSwitch = False
@@ -224,6 +227,9 @@ class MyWindow(QMainWindow):
         Getter for the stop variable
         """
         return self.songSwitch
+
+    def setSongPlaying(self, logic):
+        self.isSongPlaying = logic
 
     def updatelabel2(self, text):
         self.ui.label2.setText(text)

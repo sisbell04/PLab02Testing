@@ -131,6 +131,7 @@ class MyWindow(QMainWindow):
         self.songselectbtnsswitch(True)
         self.pausePlaySwitch(False)
         self.songSwitch = False
+        self.isSongPlaying = False
 
     def carolclicked(self):
         """
@@ -142,12 +143,14 @@ class MyWindow(QMainWindow):
 
         carolsong = carol.NewCarolSong(self.win, self.app)
         self.songSwitch = True
-        while(self.songSwitch):
+        while(self.isSongPlaying):
             time.sleep(0.01) #Useless call function
         self.carolWorker = Worker(carolsong.startsong) # add the function to execute to the worker class
         self.carolWorker.signals.finished.connect(self.afterSong) # function that will execute after carolWorker is done
         self.songSwitch = False
         self.threadpool.start(self.carolWorker) # starts carolWorker with the above requirements
+
+        self.isSongPlaying = True
 
         self.songselectbtnsswitch(True)
 
@@ -159,14 +162,17 @@ class MyWindow(QMainWindow):
         """
         self.songselectbtnsswitch(False)
 
-        jinglesong = carol.NewJingleSong(self.win, self.app)
+        jinglesong = jingle.NewJingleSong(self.win, self.app)
         self.songSwitch = True
-
+        while(self.isSongPlaying):
+            time.sleep(0.01) #Useless call function
         self.jingleWorker = Worker(jinglesong.startsong) # add the function to execute to the worker class
         self.jingleWorker.signals.finished.connect(self.afterSong) # function that will execute after carolWorker is done
         self.songSwitch = False
         self.threadpool.start(self.jingleWorker) # starts carolWorker with the above requirements
         
+        self.isSongPlaying = True
+
         self.songselectbtnsswitch(True)
 
     def littleclicked(self):
@@ -255,7 +261,7 @@ class MyWindow(QMainWindow):
 
 stylesheet = """
     QMainWindow {
-        background-image: url("/home/pi/Documents/Lab2Files/christmasbackground.jpg"); 
+        background-image: url("/home/pi/Desktop/PLab02/PLabTest/pics/christmasbackground.jpg"); 
         background-repeat: no-repeat; 
         background-position: center;
         border: 1px solid black;
@@ -271,7 +277,7 @@ def window():
 
     # use below for Raspberry Pi and make sure file path mirrors the same.
 
-    QtGui.QFontDatabase.addApplicationFont("/home/pi/Documents/Lab2Files/SantasSleighFull.ttf")
+    QtGui.QFontDatabase.addApplicationFont("/home/pi/Desktop/PLab02/PLabTest/SantasSleighFull.ttf")
     
     app.setStyleSheet(stylesheet)   
     win = MyWindow(app)

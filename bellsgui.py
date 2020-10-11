@@ -205,7 +205,6 @@ class MyWindow(QMainWindow):
         pause functionality will disapear since the main thread will be playing the song.
         """
         self.setPaused(True) # need to set paused to true so that way the song playing knows to pause
-        self.songselectbtnsswitch(True) # set other song buttons to true in case user decides to change songs
 
     def playClicked(self):
         """
@@ -214,7 +213,6 @@ class MyWindow(QMainWindow):
         pause functionality will disapear since the main thread will be playing the song.
         """
         self.setPaused(False) # set paused to false so that the song currently playing knows that it is no longer paused
-        self.songselectbtnsswitch(False) # since the song is playing the user should not be able to select a new song
         self.win.updatelabel2("Play button clicked!\nResuming the song.")
 
     def setPaused(self, logic):

@@ -283,25 +283,25 @@ class MyWindow(QMainWindow):
 
 # use below for Shawns Raspberry Pi and make sure file path mirrors the same.
 
-# stylesheet = """
-#     QMainWindow {
-#         background-image: url("/home/pi/Desktop/PLab02/PLabTest/pics/christmasbackground.jpg"); 
-#         background-repeat: no-repeat; 
-#         background-position: center;
-#         border: 1px solid black;
-#     }
-# """
+ stylesheet = """
+     QMainWindow {
+         background-image: url("/home/pi/Desktop/PLab02/PLabTest/pics/christmasbackground.jpg"); 
+         background-repeat: no-repeat; 
+         background-position: center;
+         border: 1px solid black;
+     }
+ """
 
 # use below for Raspberry Pi and make sure file path mirrors the same.
 
-stylesheet = """
-    QMainWindow {
-        background-image: url("/home/pi/Documents/Lab2Files/christmasbackground.jpg"); 
-        background-repeat: no-repeat; 
-        background-position: center;
-        border: 1px solid black;
-    }
-"""
+#stylesheet = """
+#    QMainWindow {
+#        background-image: url("/home/pi/Documents/Lab2Files/christmasbackground.jpg"); 
+#        background-repeat: no-repeat; 
+#        background-position: center;
+#        border: 1px solid black;
+#    }
+#"""
 
 def window():
     app = QApplication(sys.argv)
@@ -312,16 +312,16 @@ def window():
 
     # use below for Shawns Raspberry Pi and make sure file path mirrors the same.
 
-    #QtGui.QFontDatabase.addApplicationFont("/home/pi/Desktop/PLab02/PLabTest/SantasSleighFull.ttf")
+    QtGui.QFontDatabase.addApplicationFont("/home/pi/Desktop/PLab02/PLabTest/SantasSleighFull.ttf")
 
     # use below for Raspberry Pi and make sure file path mirrors the same.
     
-    QtGui.QFontDatabase.addApplicationFont("/home/pi/Documents/Lab2Files/SantasSleighFull.ttf")
+    #QtGui.QFontDatabase.addApplicationFont("/home/pi/Documents/Lab2Files/SantasSleighFull.ttf")
     
     app.setStyleSheet(stylesheet)   
     win = MyWindow(app)
-    # win.showMaximized()
-    win.showFullScreen() # For testing showMaximized is fine. For fullscreen on the 7 in display please use this line
+    win.showMaximized()
+    #win.showFullScreen() # For testing showMaximized is fine. For fullscreen on the 7 in display please use this line
     sys.exit(app.exec_())
 
 window()

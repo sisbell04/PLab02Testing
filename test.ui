@@ -22,10 +22,7 @@
    </font>
   </property>
   <property name="cursor">
-   <cursorShape>ArrowCursor</cursorShape>
-  </property>
-  <property name="mouseTracking">
-   <bool>true</bool>
+   <cursorShape>BlankCursor</cursorShape>
   </property>
   <property name="acceptDrops">
    <bool>false</bool>

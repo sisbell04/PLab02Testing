@@ -33,7 +33,7 @@ class NewCarolSong():
         Ideally this method is where the song would go. You would activate each gpio pin with their corresponding bell note
         and for playing two notes at the same time you would use threading
         """
-        self.win.pausePlaySwitch(True) # must set the pause play buttons to be clickable
+        #self.win.pausePlaySwitch(True) # must set the pause play buttons to be clickable
 
         for i in range(6):
             count = 0
@@ -41,7 +41,7 @@ class NewCarolSong():
                 if(self.win.getStopped() == True):
                     self.win.updatelabel2("Carol button was clicked.\nClick another!")
                     return
-                self.win.updatelabel2(" PASS {}".format(i))
+                self.win.updatelabel2("CAROL SONG PASS {}".format(i))
                 self.app.processEvents()
                 x = threading.Thread(target=self.motorswitch, args=(True, 22, 1,))
                 x.start()

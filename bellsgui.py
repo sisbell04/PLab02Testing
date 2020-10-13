@@ -18,7 +18,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 
 from songs import jingle_bells as jingle
-from songs import little_drummer_boy as drum
+from songs import little_drummer_boy as drummer
 from songs import carol_of_the_bells as carol
 
 """
@@ -166,12 +166,17 @@ class MyWindow(QMainWindow):
             Think of the worker class as a thread that happens in the background while the ui continues 
             so that pause, play, and exit to work. 
         """
-        #self.songselectbtnsswitch(False)
-        
-        drumsong = drum.NewDrumSong(self.win, self.app)
-        drumsong.startsong()
+        #Setup For next Song
+        self.setPaused(False) #Turn Paused Off
+        self.setSongPlaying(False) #Turn Song Off
+        self.threadpool.waitForDone() #Wait for songs to return
+        self.setSongPlaying(True) #Turn Song On
 
-        #self.songselectbtnsswitch(True)
+        drummersong = drummer.NewDrummerSong(self.win, self.app)
+        self.drummerWorker = Worker(drummersong.startsong) # add the function to execute to the worker class
+        self.drummerWorker.signals.finished.connect(self.afterSong) # function that will execute after carolWorker is done
+        self.threadpool.start(self.drummerWorker) # starts carolWorker with the above requirements
+
 
     def pauseClicked(self):
         """

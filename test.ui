@@ -22,7 +22,10 @@
    </font>
   </property>
   <property name="cursor">
-   <cursorShape>BlankCursor</cursorShape>
+   <cursorShape>ArrowCursor</cursorShape>
+  </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
   </property>
   <property name="acceptDrops">
    <bool>false</bool>
@@ -47,7 +50,10 @@
     </size>
    </property>
    <property name="cursor">
-    <cursorShape>BlankCursor</cursorShape>
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="mouseTracking">
+    <bool>true</bool>
    </property>
    <widget class="QPushButton" name="littlebtn">
     <property name="geometry">
@@ -74,7 +80,10 @@
      </font>
     </property>
     <property name="cursor">
-     <cursorShape>BlankCursor</cursorShape>
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(9, 18, 27);
@@ -117,7 +126,10 @@ color: rgb(255, 255, 255);</string>
      </font>
     </property>
     <property name="cursor">
-     <cursorShape>BlankCursor</cursorShape>
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(9, 18, 27);
@@ -160,10 +172,10 @@ color: rgb(255, 255, 255);</string>
      </font>
     </property>
     <property name="cursor">
-     <cursorShape>BlankCursor</cursorShape>
+     <cursorShape>ArrowCursor</cursorShape>
     </property>
     <property name="mouseTracking">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(9, 18, 27);
@@ -200,7 +212,10 @@ color: rgb(255, 255, 255);</string>
      </font>
     </property>
     <property name="cursor">
-     <cursorShape>BlankCursor</cursorShape>
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">color: rgb(255, 255, 255);
@@ -238,7 +253,10 @@ font: 32pt &quot;SantasSleighFull&quot;;</string>
      </font>
     </property>
     <property name="cursor">
-     <cursorShape>BlankCursor</cursorShape>
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">color: rgb(255, 255, 255);
@@ -261,7 +279,10 @@ font: 32pt &quot;SantasSleighFull&quot;;</string>
      </rect>
     </property>
     <property name="cursor">
-     <cursorShape>BlankCursor</cursorShape>
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(9, 18, 27);
@@ -298,7 +319,10 @@ color: rgb(255, 255, 255);</string>
      </font>
     </property>
     <property name="cursor">
-     <cursorShape>BlankCursor</cursorShape>
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(9, 18, 27);
@@ -335,7 +359,10 @@ color: rgb(255, 255, 255);</string>
      </font>
     </property>
     <property name="cursor">
-     <cursorShape>BlankCursor</cursorShape>
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(9, 18, 27);

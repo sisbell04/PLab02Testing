@@ -66,6 +66,7 @@ class NewJingleSong():
             return
         while self.win.getPaused() == True:
             self.app.processEvents() # Not really too sure if this line is needed. NEEDS TESTING
+            self.win.updatelabel2("Jingle Song Paused!\nChoose A new Song or Play to Resume!")
             time.sleep(.1)
         GPIO.output(pin, bo)
         time.sleep(t)

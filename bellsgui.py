@@ -185,7 +185,6 @@ class MyWindow(QMainWindow):
             pause functionality will disapear since the main thread will be playing the song.
         """
         self.setPaused(True) # need to set paused to true so that way the song playing knows to pause
-        self.win.updatelabel2("Song Paused!\nChoose A new Song or Play to Resume!")
 
     def playClicked(self):
         """
